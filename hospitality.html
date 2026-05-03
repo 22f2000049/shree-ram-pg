@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shree Ram Hospitality Services — Professional catering, facility management, and guest experience solutions for corporates, hostels, and institutions in Lucknow." />
+  <title>Hospitality Services | Shree Ram PG & Hospitality</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .service-big-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 4rem;
+    }
+    .service-big-card .sbc-header {
+      padding: 3rem;
+      display: flex; align-items: flex-start; gap: 1.5rem;
+    }
+    .sbc-icon {
+      width: 76px; height: 76px; border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; flex-shrink: 0;
+    }
+    .sbc-header h3 { font-family: var(--font-serif); font-size: 1.9rem; margin-bottom: .5rem; }
+    .sbc-header p  { font-size: .95rem; margin: 0; line-height: 1.8; }
+    .service-big-card .sbc-body { background: var(--white); padding: 2.5rem 3rem; }
+
+    .catering-header  { background: linear-gradient(135deg,var(--navy),#1a3b6e); color:var(--white); }
+    .facility-header  { background: linear-gradient(135deg,#1a472a,#2d7a4a); color:var(--white); }
+    .guest-header     { background: linear-gradient(135deg,#4a1560,#7c3aed); color:var(--white); }
+
+    .catering-header h3, .catering-header p { color:var(--white); }
+    .facility-header h3, .facility-header p { color:var(--white); }
+    .guest-header h3,    .guest-header p    { color:var(--white); }
+
+    .catering-icon  { background: rgba(201,151,63,.25); color: var(--gold-light); }
+    .facility-icon  { background: rgba(45,122,74,.35);  color: #86efac; }
+    .guest-icon     { background: rgba(167,139,250,.25); color: #c4b5fd; }
+
+    .feature-check {
+      display: flex; align-items: flex-start; gap: .75rem;
+      padding: .75rem 0; border-bottom: 1px solid #F3F4F6;
+    }
+    .feature-check:last-child { border-bottom: none; }
+    .feature-check i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+    .feature-check strong { font-size: .9rem; color: var(--navy); display:block; margin-bottom:.1rem; }
+    .feature-check span   { font-size: .82rem; color: var(--text-muted); }
+
+    .client-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .client-logo-item {
+      background: var(--white);
+      border: 1.5px solid #E5E7EB;
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .client-logo-item:hover { border-color: var(--gold); box-shadow: var(--shadow-card); transform: translateY(-3px); }
+    .client-logo-item i { font-size: 2rem; color: var(--navy-light); display: block; margin-bottom: .5rem; }
+    .client-logo-item span { font-size: .78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; }
+
+    .package-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      height: 100%;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+    .package-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .package-card.featured { border: 2px solid var(--gold); }
+    .package-card .featured-badge {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy); font-size: .72rem; font-weight: 700;
+      padding: .3rem 1.2rem; border-radius: 0 0 10px 10px;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .package-header { padding: 2rem 1.75rem 1.5rem; background: var(--ivory); border-bottom: 1px solid #E5E7EB; }
+    .package-header h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: .25rem; }
+    .package-header .pkg-price { font-family: var(--font-serif); font-size: 2rem; color: var(--gold); font-weight: 700; }
+    .package-header .pkg-unit  { font-size: .82rem; color: var(--text-muted); }
+    .package-body { padding: 1.75rem; }
+    .pkg-feature { display: flex; align-items: center; gap: .6rem; font-size: .86rem; color: var(--text-muted); margin-bottom: .6rem; }
+    .pkg-feature i { color: var(--gold); }
+
+    .process-connector {
+      width: 2px; height: 40px; background: var(--gold-pale); margin: 0 auto;
+    }
+
+    .stat-pill {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50px; padding: .5rem 1.2rem;
+      color: var(--white); font-size: .85rem; font-weight: 500;
+      margin: .25rem;
+    }
+    .stat-pill i { color: var(--gold-light); }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar navbar-expand-lg navbar-main fixed-top" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div><div class="brand-name">Shree Ram</div><div class="brand-tagline">PG & Hospitality</div></div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="bi bi-list text-white fs-4"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 me-lg-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="pg-rooms.html">PG Rooms</a></li>
+        <li class="nav-item"><a class="nav-link active" href="hospitality.html">Hospitality</a></li>
+        <li class="nav-item"><a class="nav-link" href="about-owner.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn-nav-cta">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container position-relative">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Hospitality Services</li>
+      </ol>
+    </nav>
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-7">
+        <span class="section-label">Corporate-Grade Solutions</span>
+        <h1>Hospitality Services That <span class="text-gold">Raise the Bar</span></h1>
+        <p class="mb-4">From catering and facility management to guest experience design — we bring hotel-level professionalism to your institution, corporate campus, or residential complex.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="stat-pill"><i class="bi bi-building-fill"></i> Catering & Dining</span>
+          <span class="stat-pill"><i class="bi bi-gear-fill"></i> Facility Management</span>
+          <span class="stat-pill"><i class="bi bi-person-hearts"></i> Guest Experience</span>
+          <span class="stat-pill"><i class="bi bi-patch-check-fill"></i> FSSAI Certified</span>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,151,63,.3);border-radius:var(--radius-lg);padding:2rem;">
+          <div style="font-family:var(--font-serif);font-size:3.5rem;font-weight:700;color:var(--gold-light);">25+</div>
+          <div style="color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:1rem;">Corporate & Institutional Clients</div>
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:700;color:var(--gold-light);">10,000+</div>
+          <div style="color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:1rem;">Meals Served Monthly</div>
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:700;color:var(--gold-light);">100%</div>
+          <div style="color:rgba(255,255,255,.65);font-size:.9rem;">FSSAI Hygiene Compliance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE 1 — CATERING ═══ -->
+<section class="section-pad" id="catering">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <span class="section-label">Service 01</span>
+      <h2 class="section-title">Catering & <span class="text-gold">Dining Management</span></h2>
+      <hr class="divider-gold mx-auto" />
+      <p class="text-muted mx-auto" style="max-width:560px;">Professional meal planning, FSSAI-compliant kitchens, and dedicated catering staff — for PG residents, corporates, and institutions alike.</p>
+    </div>
+    <div class="service-big-card fade-up">
+      <div class="sbc-header catering-header">
+        <div class="sbc-icon catering-icon"><i class="bi bi-utensils"></i></div>
+        <div>
+          <h3>Professional Catering & Dining</h3>
+          <p>We manage the full food-service cycle — procurement, preparation, presentation, and hygiene — so your residents or employees enjoy nutritious, delicious meals every single day without operational headaches.</p>
+        </div>
+      </div>
+      <div class="sbc-body">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h5 style="color:var(--navy);font-family:var(--font-serif);margin-bottom:1rem;">What We Offer</h5>
+            <div class="feature-check">
+              <i class="bi bi-check-circle-fill"></i>
+              <div><strong>Customised Meal Planning</strong><span>Weekly rotating menus designed by nutritionists. Veg, non-veg, Jain, and diabetic-friendly options available.</span></div>
+            </div>
+            <div class="feature-check">
+              <i class="bi bi-check-circle-fill"></i>
+              <div><strong>FSSAI-Certified Kitchen</strong><span>Fully compliant food preparation area with daily sanitation logs, pest control, and staff health checks.</span></div>
+            </div>
+            <div class="feature-check">
+              <i class="bi bi-check-circle-fill"></i>
+              <div><strong>Bulk Catering for Events</strong><span>Corporate lunches, annual days, seminars — we handle events from 50 to 500+ covers seamlessly.</span></div>
+            </div>
+            <div class="feature-check">
+              <i class="bi bi-check-circle-fill"></i>
+              <div><strong>Tiffin Service</strong><span>Home-delivery tiffin service for working professionals within a 5-km radius of our kitchen.</span></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h5 style="color:var(--navy);font-family:var(--font-serif);margin-bottom:1rem;">Hygiene Standards</h5>
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="safety-item">
+                  <div class="icon-box-sm"><i class="bi bi-droplet-fill"></i></div>
+                  <div><h6>RO Water</h6><p>Purified RO water for all cooking and drinking.</p></div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="safety-item">
+                  <div class="icon-box-sm"><i class="bi bi-thermometer-half"></i></div>
+                  <div><h6>Temp Control</h6><p>Food stored at regulated temperatures always.</p></div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="safety-item">
+                  <div class="icon-box-sm"><i class="bi bi-person-fill-check"></i></div>
+                  <div><h6>Staff Training</h6><p>Monthly food-safety training for all kitchen staff.</p></div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="safety-item">
+                  <div class="icon-box-sm"><i class="bi bi-clipboard2-check-fill"></i></div>
+                  <div><h6>Daily Audits</h6><p>Internal quality checks logged daily, available on request.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4 g-3">
+          <div class="col-md-3 col-6 text-center">
+            <div style="background:var(--gold-pale);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2rem;color:var(--gold);font-weight:700;">3</div>
+              <div style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;">Meals Daily</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center">
+            <div style="background:var(--gold-pale);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2rem;color:var(--gold);font-weight:700;">10k+</div>
+              <div style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;">Meals / Month</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center">
+            <div style="background:var(--gold-pale);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2rem;color:var(--gold);font-weight:700;">FSSAI</div>
+              <div style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;">Certified</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center">
+            <div style="background:var(--gold-pale);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2rem;color:var(--gold);font-weight:700;">500+</div>
+              <div style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;">Max Event Cover</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SERVICE 2 — FACILITY MANAGEMENT ═══ -->
+    <div id="facility" class="service-big-card fade-up">
+      <div class="sbc-header facility-header">
+        <div class="sbc-icon facility-icon"><i class="bi bi-building-gear"></i></div>
+        <div>
+          <h3>Facility Management Services</h3>
+          <p>End-to-end operational management of your building or complex — from daily housekeeping and pest control to electrical maintenance and vendor coordination. We run it so you don't have to.</p>
+        </div>
+      </div>
+      <div class="sbc-body">
+        <div class="row g-4">
+          <div class="col-md-4 fade-up">
+            <div class="service-card h-100">
+              <div class="service-icon" style="background:linear-gradient(135deg,#1a472a,#2d7a4a);"><i class="bi bi-house-gear-fill"></i></div>
+              <h4>Housekeeping</h4>
+              <p>Trained, uniformed housekeeping staff with daily room cleaning, common area sanitization, and periodic deep-cleaning schedules managed by our supervisors.</p>
+            </div>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-1">
+            <div class="service-card h-100">
+              <div class="service-icon" style="background:linear-gradient(135deg,#1a472a,#2d7a4a);"><i class="bi bi-tools"></i></div>
+              <h4>Maintenance & Repair</h4>
+              <p>On-call electricians, plumbers, and carpenters. Preventive maintenance schedules, annual AMC management, and emergency breakdown support 24×7.</p>
+            </div>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-2">
+            <div class="service-card h-100">
+              <div class="service-icon" style="background:linear-gradient(135deg,#1a472a,#2d7a4a);"><i class="bi bi-bug-fill"></i></div>
+              <h4>Pest Control</h4>
+              <p>Monthly certified pest control with eco-friendly chemicals. Rodent, cockroach, and mosquito management — especially critical for hostel and food-service environments.</p>
+            </div>
+          </div>
+          <div class="col-md-4 fade-up">
+            <div class="service-card h-100">
+              <div class="service-icon" style="background:linear-gradient(135deg,#1a472a,#2d7a4a);"><i class="bi bi-recycle"></i></div>
+              <h4>Waste Management</h4>
+              <p>Systematic segregation, collection, and disposal of wet/dry waste. Compliance with local municipal guidelines and eco-conscious practices.</p>
+            </div>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-1">
+            <div class="service-card h-100">
+              <div class="service-icon" style="background:linear-gradient(135deg,#1a472a,#2d7a4a);"><i class="bi bi-shield-lock-fill"></i></div>
+              <h4>Security Management</h4>
+              <p>Deployment of trained security guards, CCTV monitoring, visitor management systems, and emergency response coordination for your facility.</p>
+            </div>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-2">
+            <div class="service-card h-100">
+              <div class="service-icon" style="background:linear-gradient(135deg,#1a472a,#2d7a4a);"><i class="bi bi-graph-up-arrow"></i></div>
+              <h4>Operations Reporting</h4>
+              <p>Monthly operational reports covering uptime, maintenance logs, cost summaries, and hygiene audit scores — full transparency for management teams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SERVICE 3 — GUEST EXPERIENCE ═══ -->
+    <div id="guest" class="service-big-card fade-up">
+      <div class="sbc-header guest-header">
+        <div class="sbc-icon guest-icon"><i class="bi bi-person-hearts"></i></div>
+        <div>
+          <h3>Guest Experience Management</h3>
+          <p>We believe every resident deserves to feel like a valued guest — not just a paying occupant. Our guest experience philosophy transforms ordinary stays into memorable ones through attentive, proactive hospitality.</p>
+        </div>
+      </div>
+      <div class="sbc-body">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <h5 style="color:var(--navy);font-family:var(--font-serif);margin-bottom:1.25rem;">Our Guest-First Approach</h5>
+            <div class="process-step">
+              <div class="step-num">1</div>
+              <div>
+                <h5>Warm Welcome & Onboarding</h5>
+                <p>Every new resident receives a personal welcome kit, property tour, and a dedicated point of contact — making day-one stress-free and memorable.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">2</div>
+              <div>
+                <h5>Proactive Check-ins</h5>
+                <p>Monthly resident satisfaction surveys and informal check-ins ensure we resolve concerns before they become complaints.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">3</div>
+              <div>
+                <h5>Community Building</h5>
+                <p>Festivals, birthday celebrations, game nights, and cultural events organized throughout the year — because a happy community is a thriving one.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">4</div>
+              <div>
+                <h5>Smooth Move-Out Experience</h5>
+                <p>Hassle-free checkout, prompt deposit refunds, and glowing references — we ensure residents leave as proud alumni and brand ambassadors.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:var(--radius-lg);padding:2rem;">
+              <h5 style="color:#4c1d95;font-family:var(--font-serif);margin-bottom:1.25rem;">Corporate Guest House Management</h5>
+              <p style="color:#6d28d9;font-size:.9rem;">We also manage <strong>corporate guest houses</strong> and company transit facilities — ensuring visiting employees and clients receive hotel-level service at a fraction of the cost.</p>
+              <div class="row g-3 mt-2">
+                <div class="col-6">
+                  <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                    <div class="icon-box-sm" style="background:rgba(124,58,237,.12);color:#7c3aed;"><i class="bi bi-calendar2-check-fill"></i></div>
+                    <div><h6 style="font-size:.82rem;">Booking Management</h6><p style="font-size:.76rem;">Centralized room booking and allocation system.</p></div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                    <div class="icon-box-sm" style="background:rgba(124,58,237,.12);color:#7c3aed;"><i class="bi bi-car-front-fill"></i></div>
+                    <div><h6 style="font-size:.82rem;">Transport Coordination</h6><p style="font-size:.76rem;">Airport/station pickups and drops arranged.</p></div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                    <div class="icon-box-sm" style="background:rgba(124,58,237,.12);color:#7c3aed;"><i class="bi bi-cup-hot-fill"></i></div>
+                    <div><h6 style="font-size:.82rem;">In-Room Dining</h6><p style="font-size:.76rem;">Custom meal service based on guest preferences.</p></div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                    <div class="icon-box-sm" style="background:rgba(124,58,237,.12);color:#7c3aed;"><i class="bi bi-receipt-cutoff"></i></div>
+                    <div><h6 style="font-size:.82rem;">GST Billing</h6><p style="font-size:.76rem;">Proper GST invoicing for corporate reimbursement.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE PACKAGES ═══ -->
+<section class="section-pad bg-ivory">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <span class="section-label">Engagement Models</span>
+      <h2 class="section-title">Choose Your <span class="text-gold">Service Package</span></h2>
+      <hr class="divider-gold mx-auto" />
+      <p class="text-muted mx-auto" style="max-width:520px;">Whether you're a startup hostel or an established corporate campus, we have a package designed for your scale and budget.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 fade-up">
+        <div class="package-card">
+          <div class="package-header">
+            <h4>Essential</h4>
+            <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:.75rem;">Perfect for small PGs & startups</p>
+            <div class="pkg-price">₹25,000 <span class="pkg-unit">/ month</span></div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Housekeeping (6 days/week)</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Basic maintenance on-call</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Pest control (quarterly)</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Monthly operations report</div>
+            <div class="pkg-feature" style="color:#D1D5DB;"><i class="bi bi-x-circle-fill" style="color:#D1D5DB;"></i> Catering management</div>
+            <div class="pkg-feature" style="color:#D1D5DB;"><i class="bi bi-x-circle-fill" style="color:#D1D5DB;"></i> Security deployment</div>
+            <a href="contact.html" class="btn-outline-gold w-100 mt-3" style="justify-content:center;">Get Started</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up fade-up-delay-1">
+        <div class="package-card featured">
+          <div class="featured-badge">Most Popular</div>
+          <div class="package-header" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));">
+            <h4 style="color:var(--white);">Professional</h4>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.65);margin-bottom:.75rem;">Ideal for mid-size hostels & corporates</p>
+            <div class="pkg-price" style="color:var(--gold-light);">₹60,000 <span class="pkg-unit" style="color:rgba(255,255,255,.5);">/ month</span></div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Housekeeping (7 days)</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Full maintenance AMC</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Pest control (monthly)</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Catering management</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> 1 Security guard</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Weekly operations report</div>
+            <a href="contact.html" class="btn-gold w-100 mt-3" style="justify-content:center;">Get Started</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up fade-up-delay-2">
+        <div class="package-card">
+          <div class="package-header">
+            <h4>Enterprise</h4>
+            <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:.75rem;">Large campuses & corporate facilities</p>
+            <div class="pkg-price">Custom <span class="pkg-unit">pricing</span></div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Everything in Professional</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Dedicated on-site manager</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Full security team</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Guest experience program</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> Transport coordination</div>
+            <div class="pkg-feature"><i class="bi bi-check-circle-fill"></i> SLA-backed support</div>
+            <a href="contact.html" class="btn-outline-gold w-100 mt-3" style="justify-content:center;">Talk to Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLIENT TYPES ═══ -->
+<section class="section-pad bg-navy-section">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <span class="section-label">Who We Serve</span>
+      <h2 class="section-title">Trusted by Diverse <span class="text-gold">Clients</span></h2>
+      <hr class="divider-gold mx-auto" />
+    </div>
+    <div class="client-logo-grid fade-up">
+      <div class="client-logo-item">
+        <i class="bi bi-mortarboard-fill"></i><span>Universities & Colleges</span>
+      </div>
+      <div class="client-logo-item">
+        <i class="bi bi-building-fill"></i><span>Corporate Offices</span>
+      </div>
+      <div class="client-logo-item">
+        <i class="bi bi-hospital-fill"></i><span>Hospital Staff Quarters</span>
+      </div>
+      <div class="client-logo-item">
+        <i class="bi bi-bank2"></i><span>Government Institutions</span>
+      </div>
+      <div class="client-logo-item">
+        <i class="bi bi-people-fill"></i><span>PG Owners / Hostels</span>
+      </div>
+      <div class="client-logo-item">
+        <i class="bi bi-house-fill"></i><span>Residential Complexes</span>
+      </div>
+    </div>
+    <div class="text-center mt-5 fade-up">
+      <p style="color:rgba(255,255,255,.65);margin-bottom:1.5rem;">Ready to elevate your facility's hospitality standards?</p>
+      <a href="contact.html" class="btn-gold me-3"><i class="bi bi-send-fill"></i> Request a Proposal</a>
+      <a href="tel:+918765432109" class="btn-outline-light-gold"><i class="bi bi-telephone-fill"></i> Call: +91 87654 32109</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIAL ═══ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <span class="section-label">Client Voices</span>
+      <h2 class="section-title">What Our Clients <span class="text-gold">Say</span></h2>
+      <hr class="divider-gold mx-auto" />
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 fade-up">
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p>Shree Ram has been managing our company guest house for 2 years. The food quality, cleanliness, and professionalism are consistently excellent. Our visiting clients always compliment the experience.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div><div class="testimonial-name">Sandeep Mathur</div><div class="testimonial-role">Admin Head · Tech Company, Lucknow</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up fade-up-delay-1">
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p>We hired Shree Ram for our college hostel's facility management. The transformation in cleanliness, maintenance response time, and overall student satisfaction has been remarkable.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div><div class="testimonial-name">Dr. Meena Gupta</div><div class="testimonial-role">Hostel Warden · Private College, UP</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up fade-up-delay-2">
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p>The catering team managed our 3-day annual conference flawlessly — 300+ covers per meal, zero complaints, beautiful presentation. I'd hire them again without a second thought.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">V</div>
+            <div><div class="testimonial-name">Vikram Singh</div><div class="testimonial-role">Event Coordinator · NGO, Lucknow</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-banner">
+  <div class="container position-relative text-center fade-up">
+    <span class="section-label">Partner With Us</span>
+    <h2 class="section-title">Let's Build a Better <span class="text-gold">Guest Experience</span> Together</h2>
+    <p class="mb-4" style="color:rgba(255,255,255,.72);max-width:500px;margin:0 auto 1.5rem;">Schedule a free consultation. We'll assess your facility and recommend the right package — no obligation.</p>
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <a href="contact.html" class="btn-gold"><i class="bi bi-calendar2-check-fill"></i> Schedule Consultation</a>
+      <a href="tel:+918765432109" class="btn-outline-light-gold"><i class="bi bi-telephone-fill"></i> +91 87654 32109</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand-name">Shree Ram PG &amp; Hospitality</div>
+        <div class="footer-brand-tagline">Home Away From Home</div>
+        <p class="footer-about">Premium PG accommodations and professional hospitality management services in Lucknow since 2015.</p>
+        <div class="d-flex gap-2 mt-3 footer-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="bi bi-chevron-right"></i>Home</a></li>
+          <li><a href="pg-rooms.html"><i class="bi bi-chevron-right"></i>PG Rooms</a></li>
+          <li><a href="hospitality.html"><i class="bi bi-chevron-right"></i>Hospitality</a></li>
+          <li><a href="about-owner.html"><i class="bi bi-chevron-right"></i>About Us</a></li>
+          <li><a href="contact.html"><i class="bi bi-chevron-right"></i>Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Services</div>
+        <ul class="footer-links">
+          <li><a href="#catering"><i class="bi bi-chevron-right"></i>Catering</a></li>
+          <li><a href="#facility"><i class="bi bi-chevron-right"></i>Facility Mgmt</a></li>
+          <li><a href="#guest"><i class="bi bi-chevron-right"></i>Guest Experience</a></li>
+          <li><a href="contact.html"><i class="bi bi-chevron-right"></i>Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-heading">Hospitality Inquiries</div>
+        <div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>+91 87654 32109</span></div>
+        <div class="footer-contact-item"><i class="bi bi-envelope-fill"></i><span>hospitality@shreerampg.com</span></div>
+        <div class="footer-contact-item"><i class="bi bi-clock-fill"></i><span>Mon–Sat, 9 AM – 7 PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom mt-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <p>© 2024 Shree Ram PG &amp; Hospitality Services. All rights reserved.</p>
+      <p>Designed with <i class="bi bi-heart-fill text-gold"></i> for our residents</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+<a href="tel:+918765432109" id="callNowBtn" aria-label="Call Hospitality">
+  <i class="bi bi-telephone-fill"></i><span class="call-text">Call Us</span>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
