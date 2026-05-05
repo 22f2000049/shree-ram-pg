@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore PG room options at Shree Ram — Single, Double, and Triple sharing for Girls and Boys. AC rooms, meals, Wi-Fi, and 24/7 security in Airoli, Navi Mumbai." />
+  <title>PG Rooms | Shree Ram PG & Hospitality Services</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ─ Page-specific extras ─ */
+    .filter-bar { display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; }
+    .filter-btn {
+      background: var(--white);
+      border: 2px solid #E5E7EB;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: .83rem;
+      padding: .45rem 1.3rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+
+    .room-col { transition: opacity .3s ease; }
+
+    .girls-accent { border-top: 4px solid #e879a0; }
+    .boys-accent  { border-top: 4px solid #3b82f6; }
+
+    .room-img-girls-single  { background: linear-gradient(135deg,#f9a8d4 0%,#db2777 100%); }
+    .room-img-girls-double  { background: linear-gradient(135deg,#fbcfe8 0%,#ec4899 100%); }
+    .room-img-girls-triple  { background: linear-gradient(135deg,#fce7f3 0%,#f472b6 100%); }
+    .room-img-boys-single   { background: linear-gradient(135deg,#93c5fd 0%,#2563eb 100%); }
+    .room-img-boys-double   { background: linear-gradient(135deg,#bfdbfe 0%,#3b82f6 100%); }
+    .room-img-boys-triple   { background: linear-gradient(135deg,#dbeafe 0%,#60a5fa 100%); }
+
+    .room-img-inner {
+      height:200px; display:flex; align-items:center; justify-content:center;
+      font-size:4rem; position:relative;
+    }
+
+    .security-strip {
+      background: linear-gradient(135deg,#fff1f5,#ffe4ef);
+      border: 1.5px solid #fbb6ce;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    .security-strip.boys-strip {
+      background: linear-gradient(135deg,#eff6ff,#dbeafe);
+      border-color: #93c5fd;
+    }
+
+    .wing-section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem,3vw,2.4rem);
+      font-weight: 700;
+    }
+    .wing-tag-girls { color: #db2777; }
+    .wing-tag-boys  { color: #2563eb; }
+
+    .faq-accordion .accordion-button {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--navy);
+      background: var(--white);
+    }
+    .faq-accordion .accordion-button:not(.collapsed) {
+      color: var(--gold);
+      background: var(--ivory);
+      box-shadow: none;
+    }
+    .faq-accordion .accordion-button::after {
+      filter: hue-rotate(30deg);
+    }
+    .faq-accordion .accordion-item {
+      border: 1.5px solid #E5E7EB;
+      border-radius: var(--radius) !important;
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+    .faq-accordion .accordion-body {
+      font-size: .88rem; color: var(--text-muted); line-height: 1.8;
+    }
+
+    .pricing-note {
+      background: linear-gradient(135deg,var(--navy),var(--navy-light));
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem;
+      color: var(--white);
+    }
+    .pricing-note h4 { color: var(--gold-light); }
+    .pricing-note p  { color: rgba(255,255,255,.72); font-size:.9rem; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar navbar-expand-lg navbar-main fixed-top" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div>
+        <div class="brand-name">Shree Ram</div>
+        <div class="brand-tagline">PG & Hospitality</div>
+      </div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="bi bi-list text-white fs-4"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 me-lg-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="pg-rooms.html">PG Rooms</a></li>
+        <li class="nav-item"><a class="nav-link" href="hospitality.html">Hospitality</a></li>
+        <li class="nav-item"><a class="nav-link" href="about-owner.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn-nav-cta">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container position-relative">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">PG Rooms</li>
+      </ol>
+    </nav>
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-7">
+        <span class="section-label">Accommodation Options</span>
+        <h1>Premium PG Rooms for <span class="text-gold">Girls & Boys</span></h1>
+        <p>Thoughtfully furnished rooms with modern amenities, home-style meals, and round-the-clock support — choose the configuration that fits your lifestyle.</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="row g-3 text-center">
+          <div class="col-6">
+            <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2.2rem;color:var(--gold-light);font-weight:700;">6</div>
+              <div style="font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;">Room Types</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2.2rem;color:var(--gold-light);font-weight:700;">350+</div>
+              <div style="font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;">Happy Residents</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2.2rem;color:var(--gold-light);font-weight:700;">AC/Non</div>
+              <div style="font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;">Both Available</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:1.25rem;">
+              <div style="font-family:var(--font-serif);font-size:2.2rem;color:var(--gold-light);font-weight:700;">24/7</div>
+              <div style="font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;">Security Cover</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FILTER BAR ═══ -->
+<section class="section-pad-sm bg-ivory">
+  <div class="container">
+    <div class="text-center mb-4 fade-up">
+      <span class="section-label">Filter Rooms</span>
+      <h2 class="section-title">Find Your <span class="text-gold">Perfect Room</span></h2>
+      <hr class="divider-gold mx-auto" />
+    </div>
+    <div class="filter-bar mb-5 fade-up">
+      <button class="filter-btn active" data-filter="all">All Rooms</button>
+      <button class="filter-btn" data-filter="girls">👩 Girls Wing</button>
+      <button class="filter-btn" data-filter="boys">👨 Boys Wing</button>
+    </div>
+
+    <!-- ── GIRLS ROOMS ── -->
+    <div id="girls" class="mb-5">
+      <div class="d-flex align-items-center gap-3 mb-4 fade-up">
+        <div style="width:50px;height:50px;background:linear-gradient(135deg,#ec4899,#db2777);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(236,72,153,.35);">👩</div>
+        <div>
+          <div class="wing-section-title wing-tag-girls">Girls PG Wing</div>
+          <div style="font-size:.82rem;color:var(--text-muted);">Managed by female wardens · All-women floors · Biometric secured</div>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Single Room Girls -->
+        <div class="col-lg-4 col-md-6 room-col fade-up">
+          <div class="room-card girls-accent" data-wing="girls">
+            <div class="room-img room-img-girls-single">
+              <div class="room-img-inner">🛏️</div>
+              <div class="room-badge">Single Sharing</div>
+            </div>
+            <div class="room-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h3 class="room-title">Girls — Single Room</h3>
+                <span class="badge bg-success" style="font-size:.7rem;">Available</span>
+              </div>
+              <div class="room-price">₹12,000 <span>/ month</span></div>
+              <p class="text-muted mt-2 mb-3" style="font-size:.85rem;">Ultimate privacy in a spacious single-occupancy room with attached bathroom and dedicated study desk.</p>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Attached bathroom</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Study table + bookshelf</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> AC & Non-AC options</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Wardrobe included</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> 3 meals/day included</div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn-gold w-100" style="font-size:.82rem;padding:.55rem;" data-open-inquiry>Enquire Now</button>
+                <a href="contact.html" class="btn-outline-gold" style="font-size:.82rem;padding:.55rem 1rem;">Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Double Room Girls -->
+        <div class="col-lg-4 col-md-6 room-col fade-up fade-up-delay-1">
+          <div class="room-card girls-accent" data-wing="girls">
+            <div class="room-img room-img-girls-double">
+              <div class="room-img-inner">🛏️🛏️</div>
+              <div class="room-badge">Double Sharing</div>
+            </div>
+            <div class="room-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h3 class="room-title">Girls — Double Room</h3>
+                <span class="badge bg-warning text-dark" style="font-size:.7rem;">1 Seat Left</span>
+              </div>
+              <div class="room-price">₹8,500 <span>/ month/person</span></div>
+              <p class="text-muted mt-2 mb-3" style="font-size:.85rem;">Comfortable twin-sharing room — ideal for friends or new flatmates in a safe, monitored environment.</p>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Common / attached bath</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Individual study zones</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> High-speed Wi-Fi</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Power backup</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> 3 meals/day included</div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn-gold w-100" style="font-size:.82rem;padding:.55rem;" data-open-inquiry>Enquire Now</button>
+                <a href="contact.html" class="btn-outline-gold" style="font-size:.82rem;padding:.55rem 1rem;">Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Triple Room Girls -->
+        <div class="col-lg-4 col-md-6 room-col fade-up fade-up-delay-2">
+          <div class="room-card girls-accent" data-wing="girls">
+            <div class="room-img room-img-girls-triple">
+              <div class="room-img-inner">🛏️🛏️🛏️</div>
+              <div class="room-badge">Triple Sharing</div>
+            </div>
+            <div class="room-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h3 class="room-title">Girls — Triple Room</h3>
+                <span class="badge bg-success" style="font-size:.7rem;">Available</span>
+              </div>
+              <div class="room-price">₹6,500 <span>/ month/person</span></div>
+              <p class="text-muted mt-2 mb-3" style="font-size:.85rem;">Budget-friendly triple-sharing — vibrant community living without compromising on comfort and safety.</p>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Spacious common bath</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Individual lockers</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Laundry included</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Common study hall</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> 3 meals/day included</div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn-gold w-100" style="font-size:.82rem;padding:.55rem;" data-open-inquiry>Enquire Now</button>
+                <a href="contact.html" class="btn-outline-gold" style="font-size:.82rem;padding:.55rem 1rem;">Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BOYS ROOMS ── -->
+    <div id="boys" class="mb-5">
+      <div class="d-flex align-items-center gap-3 mb-4 fade-up">
+        <div style="width:50px;height:50px;background:linear-gradient(135deg,#60a5fa,#2563eb);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(96,165,250,.35);">👨</div>
+        <div>
+          <div class="wing-section-title wing-tag-boys">Boys PG Wing</div>
+          <div style="font-size:.82rem;color:var(--text-muted);">Verified residents · Rec zone · High-speed internet · Power backup</div>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Single Room Boys -->
+        <div class="col-lg-4 col-md-6 room-col fade-up">
+          <div class="room-card boys-accent" data-wing="boys">
+            <div class="room-img room-img-boys-single">
+              <div class="room-img-inner">🖥️</div>
+              <div class="room-badge">Single Sharing</div>
+            </div>
+            <div class="room-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h3 class="room-title">Boys — Single Room</h3>
+                <span class="badge bg-success" style="font-size:.7rem;">Available</span>
+              </div>
+              <div class="room-price">₹11,000 <span>/ month</span></div>
+              <p class="text-muted mt-2 mb-3" style="font-size:.85rem;">Private, distraction-free single room with premium amenities — perfect for working professionals.</p>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Attached bathroom</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> 100 Mbps Wi-Fi</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> AC & Non-AC options</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Standing desk available</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Meals + laundry</div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn-gold w-100" style="font-size:.82rem;padding:.55rem;" data-open-inquiry>Enquire Now</button>
+                <a href="contact.html" class="btn-outline-gold" style="font-size:.82rem;padding:.55rem 1rem;">Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Double Room Boys -->
+        <div class="col-lg-4 col-md-6 room-col fade-up fade-up-delay-1">
+          <div class="room-card boys-accent" data-wing="boys">
+            <div class="room-img room-img-boys-double">
+              <div class="room-img-inner">🛋️</div>
+              <div class="room-badge">Double Sharing</div>
+            </div>
+            <div class="room-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h3 class="room-title">Boys — Double Room</h3>
+                <span class="badge bg-success" style="font-size:.7rem;">Available</span>
+              </div>
+              <div class="room-price">₹7,500 <span>/ month/person</span></div>
+              <p class="text-muted mt-2 mb-3" style="font-size:.85rem;">Vibrant twin sharing with a productive, social environment. Great for students and young professionals.</p>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Common bathroom (2:1)</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Individual wardrobes</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Gaming/TV lounge access</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Power backup 24×7</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> 3 meals/day</div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn-gold w-100" style="font-size:.82rem;padding:.55rem;" data-open-inquiry>Enquire Now</button>
+                <a href="contact.html" class="btn-outline-gold" style="font-size:.82rem;padding:.55rem 1rem;">Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Triple Room Boys -->
+        <div class="col-lg-4 col-md-6 room-col fade-up fade-up-delay-2">
+          <div class="room-card boys-accent" data-wing="boys">
+            <div class="room-img room-img-boys-triple">
+              <div class="room-img-inner">🏠</div>
+              <div class="room-badge">Triple Sharing</div>
+            </div>
+            <div class="room-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h3 class="room-title">Boys — Triple Room</h3>
+                <span class="badge bg-danger" style="font-size:.7rem;">Filling Fast</span>
+              </div>
+              <div class="room-price">₹5,500 <span>/ month/person</span></div>
+              <p class="text-muted mt-2 mb-3" style="font-size:.85rem;">The most economical option — a lively triple-sharing experience with shared access to all premium facilities.</p>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Shared bathroom (1:3)</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Personal locker</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Common study room</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> Housekeeping included</div>
+              <div class="room-feature"><i class="bi bi-check-circle-fill"></i> 3 meals/day</div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn-gold w-100" style="font-size:.82rem;padding:.55rem;" data-open-inquiry>Enquire Now</button>
+                <a href="contact.html" class="btn-outline-gold" style="font-size:.82rem;padding:.55rem 1rem;">Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SAFETY & SECURITY ═══ -->
+<section class="section-pad" style="background:var(--ivory);">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <span class="section-label">Safety First</span>
+      <h2 class="section-title">Your Security is Our <span class="text-gold">Top Priority</span></h2>
+      <hr class="divider-gold mx-auto" />
+    </div>
+    <div class="row g-4">
+      <!-- Girls Security -->
+      <div class="col-lg-6 fade-up">
+        <div class="security-strip">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="font-size:2rem;">👩‍💼</div>
+            <h4 style="font-family:var(--font-serif);color:#be185d;margin:0;">Girls Wing Security</h4>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(236,72,153,.12);color:#db2777;"><i class="bi bi-person-badge-fill"></i></div>
+                <div><h6 style="font-size:.88rem;">Female Warden</h6><p style="font-size:.78rem;">Resident female warden on duty 24/7 for immediate support.</p></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(236,72,153,.12);color:#db2777;"><i class="bi bi-fingerprint"></i></div>
+                <div><h6 style="font-size:.88rem;">Biometric Entry</h6><p style="font-size:.78rem;">Fingerprint-only access — no unauthorized entries, ever.</p></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(236,72,153,.12);color:#db2777;"><i class="bi bi-camera-video-fill"></i></div>
+                <div><h6 style="font-size:.88rem;">CCTV Surveillance</h6><p style="font-size:.78rem;">HD cameras at every entry, corridor, and common area.</p></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(236,72,153,.12);color:#db2777;"><i class="bi bi-bell-fill"></i></div>
+                <div><h6 style="font-size:.88rem;">Emergency Alert</h6><p style="font-size:.78rem;">One-touch panic alarm system connected to management.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(255,255,255,.6);border-radius:10px;font-size:.84rem;color:#9d174d;">
+            <i class="bi bi-shield-lock-fill me-2"></i><strong>Girls-only floors</strong> — Male visitors are strictly restricted to the ground-floor reception area only.
+          </div>
+        </div>
+      </div>
+      <!-- Boys Security -->
+      <div class="col-lg-6 fade-up fade-up-delay-1">
+        <div class="security-strip boys-strip">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="font-size:2rem;">🛡️</div>
+            <h4 style="font-family:var(--font-serif);color:#1d4ed8;margin:0;">Boys Wing Security</h4>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(59,130,246,.12);color:#2563eb;"><i class="bi bi-person-check-fill"></i></div>
+                <div><h6 style="font-size:.88rem;">Verified Residents</h6><p style="font-size:.78rem;">ID & background verification for every resident before entry.</p></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(59,130,246,.12);color:#2563eb;"><i class="bi bi-door-closed-fill"></i></div>
+                <div><h6 style="font-size:.88rem;">Smart Lock Access</h6><p style="font-size:.78rem;">Smart card and biometric dual-authentication on all entry points.</p></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(59,130,246,.12);color:#2563eb;"><i class="bi bi-camera-video-fill"></i></div>
+                <div><h6 style="font-size:.88rem;">CCTV Network</h6><p style="font-size:.78rem;">Full CCTV coverage with 30-day cloud recording backup.</p></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-item" style="background:rgba(255,255,255,.8);">
+                <div class="icon-box-sm" style="background:rgba(59,130,246,.12);color:#2563eb;"><i class="bi bi-shield-fill-check"></i></div>
+                <div><h6 style="font-size:.88rem;">Night Security</h6><p style="font-size:.78rem;">Armed security guard posted at the main gate from 10PM–6AM.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(255,255,255,.6);border-radius:10px;font-size:.84rem;color:#1e3a8a;">
+            <i class="bi bi-geo-alt-fill me-2"></i><strong>Live tracking</strong> — Parents can be enrolled in our optional daily check-in SMS notification service.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AMENITIES ═══ -->
+<section class="section-pad bg-navy-section">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <span class="section-label">What's Included</span>
+      <h2 class="section-title">All Amenities, <span class="text-gold">Zero Surprises</span></h2>
+      <hr class="divider-gold mx-auto" />
+      <p style="color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;">Every room comes with a standard bundle of amenities. Additional services can be added à la carte.</p>
+    </div>
+    <div class="text-center fade-up">
+      <span class="amenity-pill"><i class="bi bi-wifi"></i> High-Speed Wi-Fi (100 Mbps)</span>
+      <span class="amenity-pill"><i class="bi bi-thermometer-sun"></i> AC Rooms Available</span>
+      <span class="amenity-pill"><i class="bi bi-cup-hot-fill"></i> 3 Meals / Day</span>
+      <span class="amenity-pill"><i class="bi bi-lightning-charge-fill"></i> 24×7 Power Backup</span>
+      <span class="amenity-pill"><i class="bi bi-basket3-fill"></i> Laundry Service</span>
+      <span class="amenity-pill"><i class="bi bi-droplet-fill"></i> RO Purified Water</span>
+      <span class="amenity-pill"><i class="bi bi-tv-fill"></i> Common TV Lounge</span>
+      <span class="amenity-pill"><i class="bi bi-book-fill"></i> Study Hall</span>
+      <span class="amenity-pill"><i class="bi bi-bicycle"></i> Recreation Zone</span>
+      <span class="amenity-pill"><i class="bi bi-heart-pulse-fill"></i> First-Aid Kit</span>
+      <span class="amenity-pill"><i class="bi bi-camera-video-fill"></i> CCTV Security</span>
+      <span class="amenity-pill"><i class="bi bi-tools"></i> Maintenance On-Call</span>
+      <span class="amenity-pill"><i class="bi bi-snow3"></i> Refrigerator (Common)</span>
+      <span class="amenity-pill"><i class="bi bi-bus-front-fill"></i> Transport Assistance</span>
+      <span class="amenity-pill"><i class="bi bi-moon-stars-fill"></i> Night Security Guard</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING SUMMARY ═══ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <span class="section-label">Transparent Pricing</span>
+      <h2 class="section-title">No Hidden <span class="text-gold">Costs</span></h2>
+      <hr class="divider-gold mx-auto" />
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4 fade-up">
+        <div class="pricing-note text-center">
+          <h4>Girls Wing</h4>
+          <div style="font-family:var(--font-serif);font-size:1rem;color:rgba(255,255,255,.6);margin:.5rem 0 1rem;">Monthly Rent Range</div>
+          <div style="font-family:var(--font-serif);font-size:2.8rem;font-weight:700;color:var(--gold-light);">₹6,500</div>
+          <div style="color:rgba(255,255,255,.5);font-size:.85rem;">to</div>
+          <div style="font-family:var(--font-serif);font-size:2.8rem;font-weight:700;color:var(--gold-light);">₹12,000</div>
+          <p class="mt-2">Triple to Single sharing. Meals + Wi-Fi + Laundry included.</p>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up fade-up-delay-1">
+        <div class="pricing-note text-center">
+          <h4>Boys Wing</h4>
+          <div style="font-family:var(--font-serif);font-size:1rem;color:rgba(255,255,255,.6);margin:.5rem 0 1rem;">Monthly Rent Range</div>
+          <div style="font-family:var(--font-serif);font-size:2.8rem;font-weight:700;color:var(--gold-light);">₹5,500</div>
+          <div style="color:rgba(255,255,255,.5);font-size:.85rem;">to</div>
+          <div style="font-family:var(--font-serif);font-size:2.8rem;font-weight:700;color:var(--gold-light);">₹11,000</div>
+          <p class="mt-2">Triple to Single sharing. Meals + Wi-Fi + Power Backup included.</p>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up fade-up-delay-2">
+        <div class="pricing-note text-center" style="background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);">
+          <h4 style="color:var(--navy);">One-Time Charges</h4>
+          <div style="font-size:.85rem;color:rgba(10,22,40,.7);margin:.5rem 0 1rem;">Payable at joining</div>
+          <div class="d-flex justify-content-between mb-2" style="font-size:.88rem;">
+            <span>Security Deposit</span><strong>₹5,000</strong>
+          </div>
+          <div class="d-flex justify-content-between mb-2" style="font-size:.88rem;">
+            <span>Registration Fee</span><strong>₹500</strong>
+          </div>
+          <div class="d-flex justify-content-between mb-2" style="font-size:.88rem;">
+            <span>Maintenance</span><strong>Included</strong>
+          </div>
+          <div class="d-flex justify-content-between" style="font-size:.88rem;">
+            <span>Electricity (AC)</span><strong>At Actuals</strong>
+          </div>
+          <p class="mt-3" style="font-size:.78rem;color:rgba(10,22,40,.65);">Security deposit refundable on leaving after 3 months.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="row justify-content-center fade-up">
+      <div class="col-lg-8">
+        <div class="text-center mb-4">
+          <span class="section-label">Got Questions?</span>
+          <h3 class="section-title">Frequently Asked <span class="text-gold">Questions</span></h3>
+        </div>
+        <div class="accordion faq-accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Can parents visit the Girls PG?</button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Yes! Parents and guardians are warmly welcomed in the ground-floor reception area. After prior intimation, they may be escorted to common areas. Overnight family stays are not permitted, but arrangements can be discussed with management.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What is the food menu like?</button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">We serve home-style North Indian meals — breakfast, lunch, and dinner — prepared fresh daily by our in-house cook. The weekly menu is rotated to ensure variety. Special dietary requirements (vegetarian/Jain/diabetic) can be accommodated with prior notice.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Is there a minimum stay period?</button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">The minimum stay is 3 months. Short-term stays of 1–2 months may be available based on room availability, typically at a 15% premium on the monthly rent. Security deposit is refunded after serving the minimum period.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Are AC rooms available in both wings?</button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Yes — AC is available in single and double-sharing rooms in both wings. Triple-sharing rooms are Non-AC with ceiling fans. AC electricity charges are billed separately at actuals (metered per room).</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Can I pay rent online?</button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Absolutely. We accept UPI (Google Pay, PhonePe, Paytm), NEFT/IMPS bank transfer, and cash. Digital rent receipts are provided for all online payments. Rent is due by the 5th of every month.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-banner">
+  <div class="container position-relative text-center fade-up">
+    <span class="section-label">Next Steps</span>
+    <h2 class="section-title">Ready to Move In? <span class="text-gold">We're Ready for You.</span></h2>
+    <p class="mb-4" style="color:rgba(255,255,255,.72);max-width:500px;margin:0 auto 1.5rem;">Schedule a free room visit, or call us now. Our team will guide you through the process in minutes.</p>
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <a href="contact.html" class="btn-gold"><i class="bi bi-calendar-check-fill"></i> Book a Visit</a>
+      <a href="tel:+919628307846" class="btn-outline-light-gold"><i class="bi bi-telephone-fill"></i> +91 96283 07846</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand-name">Shree Ram PG &amp; Hospitality</div>
+        <div class="footer-brand-tagline">Home Away From Home</div>
+        <p class="footer-about">Safe, comfortable, and premium paying guest accommodations alongside professional hospitality services in Airoli, Navi Mumbai since 2015.</p>
+        <div class="d-flex gap-2 mt-3 footer-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="bi bi-chevron-right"></i>Home</a></li>
+          <li><a href="pg-rooms.html"><i class="bi bi-chevron-right"></i>PG Rooms</a></li>
+          <li><a href="hospitality.html"><i class="bi bi-chevron-right"></i>Hospitality</a></li>
+          <li><a href="about-owner.html"><i class="bi bi-chevron-right"></i>About Us</a></li>
+          <li><a href="contact.html"><i class="bi bi-chevron-right"></i>Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">PG Wings</div>
+        <ul class="footer-links">
+          <li><a href="#girls"><i class="bi bi-chevron-right"></i>Girls Rooms</a></li>
+          <li><a href="#boys"><i class="bi bi-chevron-right"></i>Boys Rooms</a></li>
+          <li><a href="hospitality.html"><i class="bi bi-chevron-right"></i>Catering</a></li>
+          <li><a href="contact.html"><i class="bi bi-chevron-right"></i>Book a Visit</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-heading">Get In Touch</div>
+        <div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>Shop No.1, Shubrajni CHS., Sector-3, <br>Airoli, Navi Mumbai 400708</span></div>
+        <div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>+91 96283 07846 (PG) · +91 96283 07846 (Hospitality)</span></div>
+        <div class="footer-contact-item"><i class="bi bi-envelope-fill"></i><span>info@shreerampg.com</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom mt-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <p>© 2026 Shree Ram PG &amp; Hospitality Services. All rights reserved.</p>
+      <p>Designed with <i class="bi bi-heart-fill text-gold"></i> for our residents</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Inquiry Modal -->
+<div class="modal fade inquiry-modal" id="inquiryModal" tabindex="-1" aria-label="Room Inquiry">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-chat-dots-fill me-2 text-gold"></i>Quick Room Inquiry</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="inquiryForm">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Full Name *</label>
+              <input type="text" class="form-control" placeholder="Your name" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone Number *</label>
+              <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Wing Preference</label>
+              <select class="form-select">
+                <option>Girls Wing</option>
+                <option>Boys Wing</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Room Type</label>
+              <select class="form-select">
+                <option>Single Sharing</option>
+                <option>Double Sharing</option>
+                <option>Triple Sharing</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Expected Move-in Date</label>
+              <input type="date" class="form-control" />
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn-gold w-100"><i class="bi bi-send-fill me-2"></i>Send Inquiry</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+<a href="tel:+919876543210" id="callNowBtn" aria-label="Call Now">
+  <i class="bi bi-telephone-fill"></i><span class="call-text">Call Now</span>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
